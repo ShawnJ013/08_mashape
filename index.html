@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="random-memes">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Meme</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+</head>
+
+<body ng-controller="MemeController as meme">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Generating A FactoMeme</h1>
+            <p class="lead">Warning this will get a bit meme</p>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <!--Get random quote button-->
+        <button ng-click="meme.generateRandomFact()" type="button" class="btn btn-primary btn-block">Generate Text</button>
+        <p>{{meme.response}}</p>
+        <!--Get random image button-->
+        <button ng-click="meme.getRandomImage()" type="button" class="btn btn-success btn-block">Get Image</button>
+        <img ng-src="{{meme.randomImage.url}}" alt="">{{meme.response.url}}</img>
+        <!--Button to combine random quote and random meme photo to display in panel-body-->
+    </div>
+    <div class="col-xs-6 panel panel-default">
+        <div class="panel-heading">Here's your meme!</div>
+	        <img ng-src="{{meme.completeMemeUrl}}" class="panel-body">{{meme.completeUrl}}</img>
+    		</div>
+    	</div>
+    </div>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="app/search/app.module.js"></script>
+    <script src="app/search/meme.controller.js"></script>
+    <script src="app/core/randomfacts.factory.js"></script>
+    <script src="app/core/meme.factory.js"></script>
+
+</html>
+</body>
